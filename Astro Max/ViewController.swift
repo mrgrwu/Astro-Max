@@ -14,13 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var cropFactorLabel: UILabel!
     @IBOutlet weak var maxShutterSpeedLabel: UILabel!
     
-    var lensFocalLength : Int = 11
-    var cropFactor : Float = 1.5
-    var maxShutterSpeed : Float = 30
+    var lensFocalLength: Int = 11
+    var cropFactor: Float = 1.5
+    var maxShutterSpeed: Float = 30
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         calculateShutterSpeed()
         updateLabels()
@@ -47,7 +46,13 @@ class ViewController: UIViewController {
         cropFactorLabel.text = String(format: "%.1f", cropFactor)
         maxShutterSpeedLabel.text = String(format: "%.1f", maxShutterSpeed)
     }
-
+    
+    @IBAction func infoButtonPressed(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Info") as? InfoViewController {
+            present(vc, animated: true)
+        }
+    }
+    
 
 }
 
